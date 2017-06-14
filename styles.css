@@ -1,0 +1,225 @@
+@import "bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Lato|Permanent+Marker');
+
+/*
+    font-family: 'Permanent Marker', cursive;
+
+    font-family: 'Lato', sans-serif;
+
+    font-family: 'Alex Brush', cursive;
+*/
+
+/*-- HEADER --*/
+
+
+html, body{
+	margin:0;
+	padding:0}
+body{
+	background-color:white;
+	margin:0 0 0 0;
+}
+/*h1{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-align:left;
+}*/
+h2{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-align:left;
+}
+/*h3{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-align:left;
+}*/
+p{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-align:left;
+	margin-left:0;
+	margin-right:0;
+}
+li{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-align:left;
+	margin-left:0;
+	margin-right:0;
+}
+a:link{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-decoration:underline;
+}
+a:visited{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-decoration:underline;
+}
+a:hover{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-decoration:underline;
+}
+a:active, a:focus{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	background-color:transparent;
+	text-decoration:underline;
+}
+table{
+	border-color:white;
+	border-style:solid;
+	border-width:1px;
+}
+td{
+	font-family: 'Lato', sans-serif;
+	font-size:100%;
+	color:black;
+	text-align:left;
+	background-color:transparent;
+	border-color:white;
+	border-style:solid;
+	border-width:1px;
+}
+
+/*-- HEADER --*/
+
+.main-nav{
+	background-color: #c36652;
+}
+
+.navbar-brand{
+	color: #FFFFFF !important;
+	font-weight: bold;
+	font-size: 1.7em !important;
+	text-decoration: none !important;
+	letter-spacing: 2px;
+}
+
+.navbar-right li a{
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-size: 14px;
+	font-weight: 600;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.navbar-right li a:hover{
+	color: black;
+}
+
+.navbar-right li.active a{
+	background-color: rgba(0,0,0,.2);
+}
+
+	/*-- Toggle --*/
+.navbar-toggle{
+	border: 1px solid #FFFFFF;
+}
+
+.icon-bar{
+	background-color: #FFFFFF;
+}
+
+
+/*-- SECTION 1 --*/
+
+#home {
+  background-size: cover;
+  background-position: center;
+  background-color: silver;
+  color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100vh;
+  text-align: center;
+  background: url(../images/accueil1.jpg) fixed;
+  background-size: cover;
+}
+#home h1 {
+  font-size: 50px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+#home h3 {
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+#home hr {
+  width: 240px;
+}
+#home .btn {
+  background: transparent;
+  border: 4px solid #ffffff;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 12px 42px;
+  margin-top: 40px;
+  margin-right: 16px;
+  transition: all 0.4s ease-in-out;
+}
+#home .btn:hover {
+  background: #922B21;
+  border-color: transparent;
+}
+#home .btn-danger {
+  background: #922B21;
+  border-color: transparent;
+}
+#home .btn-danger:hover {
+	border: 4px solid #ffffff;
+  	border-radius: 0;
+	background: transparent;
+  	color: #ffffff;
+}
+
+/*-- SECTION 2 --*/
+
+
+
+/*-- FOOTER --*/
+
+footer{
+	background-color: #c36652; 
+}
+
+footer p{
+	padding-top: 10px;
+
+}
+
+footer ul{
+	text-align: right;
+	padding-top: 10px;
+
+}
