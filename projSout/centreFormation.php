@@ -1,8 +1,5 @@
 <?php session_start();
 
-    // Quand l'utilisateur clique pour ajouter un centre de formation, l'ID sera transmis en SESSION à cette page
-    //echo '<pre>'.print_r($_POST).'</pre>';
-
     define('HOST', 'localhost');
     define('USER', 'root');
     define('PASS', '');
@@ -10,7 +7,7 @@
 
     require_once('includes/inc_bdd.php'); // Inclusion essentielle
 
-    // Les données et mot de passe ont été vérifiés en javascript et soumise
+    // Les données et mot de passe ont été vérifiés en javascript
     // Enregistrement dans la base de données de l'utilisateur
     $civilite          = strip_tags($_POST['civilite']);
     $nomUtilisateur    = strip_tags($_POST['nomUtilisateur']);
@@ -43,24 +40,13 @@
     $requete->bindValue(':paiementId',    1, PDO::PARAM_INT);
 
     $success = $requete->execute();
-    //echo 'Inscription réussi de l\'utilisateur';
 
-    // Si les champs utilisateur de rôle Directeur à correctement été remplis
+    // centre de formation
     if ($success) {
-        //echo 'Entré dans le bloc centre de formation';
-        $requete = $db->prepare('SELECT id FROM utilisateur WHERE email LIKE :email');
-        $requete->bindValue(':email', $email, PDO::PARAM_STR);
-        $success = $requete->execute();
-
-        // Récupère l'id de l'entreprise passé en session, qui créera le centre de formation 
-        $idEntreprise = $_SESSION['idEntreprise'];
         
-        $idUtilisateur = 0;
-        if ($success) {
-            $idUtilisateur = $requete->fetch()['id'];
-        }
+        $idEntreprise  = $_SESSION['idEntreprise'];
+        $idUtilisateur = $db->lastInsertId();
 
-        // On remplis la table 'centre_de_formation'
         if ($idUtilisateur != 0) {
             $nomCentre  = strip_tags($_POST['nomCentre']);
             $adresse    = strip_tags($_POST['adresse']);
