@@ -9,97 +9,8 @@
     font-family: 'Alex Brush', cursive;
 */
 
-/*-- HEADER --*/
-
-
-html, body{
-	margin:0;
-	padding:0}
-body{
-	background-color:white;
-	margin:0 0 0 0;
-}
-/*h1{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-align:left;
-}*/
-h2{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-align:left;
-}
-/*h3{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-align:left;
-}*/
-p{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-align:left;
-	margin-left:0;
-	margin-right:0;
-}
-li{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-align:left;
-	margin-left:0;
-	margin-right:0;
-}
-a:link{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-decoration:underline;
-}
-a:visited{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-decoration:underline;
-}
-a:hover{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-decoration:underline;
-}
-a:active, a:focus{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	background-color:transparent;
-	text-decoration:underline;
-}
-table{
-	border-color:white;
-	border-style:solid;
-	border-width:1px;
-}
-td{
-	font-family: 'Lato', sans-serif;
-	font-size:100%;
-	color:black;
-	text-align:left;
-	background-color:transparent;
-	border-color:white;
-	border-style:solid;
-	border-width:1px;
+h4{
+	padding-top: 15px;
 }
 
 /*-- HEADER --*/
@@ -109,10 +20,10 @@ td{
 }
 
 .navbar-brand{
-	color: #FFFFFF !important;
+	color: #FFFFFF;
 	font-weight: bold;
-	font-size: 1.7em !important;
-	text-decoration: none !important;
+	font-size: 1.7em;
+	text-decoration: none;
 	letter-spacing: 2px;
 }
 
@@ -125,6 +36,7 @@ td{
 	font-weight: 600;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	font-family: 'Lato', sans-serif;
 }
 
 .navbar-right li a:hover{
@@ -168,9 +80,11 @@ td{
   letter-spacing: 4px;
   font-weight: bold;
 }
+
 #home h3 {
   font-size: 17px;
   letter-spacing: 2px;
+  font-family: 'Lato', sans-serif;
 }
 #home hr {
   width: 240px;
@@ -205,7 +119,65 @@ td{
 
 /*-- SECTION 2 --*/
 
+.aboutUs{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: rgba(0,0,0,0.05);
+}
 
+.aboutUs h2{
+	font-family: 'Alex Brush', cursive;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+/*SECTION 5*/
+
+.section5 h4{
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 15px;
+}
+
+.form-group{
+	padding-bottom: 10px;
+}
+
+.form-group p{
+	padding-bottom: 10px;
+}
+
+.inputLarge{
+	width: 50%;
+	min-height: 30px;
+	display: block;
+	border: 1px solid silver;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.button1{
+	display: block;
+	margin: auto;
+	text-align: center;
+	width: 50%;
+	height: 40px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 15px;
+	font-weight: bold;
+	border : 4px solid #922B21;
+	border-radius: 5px;
+	background-color: #922B21;
+	color: white;
+	transition: all 0.4s ease-in-out;
+}
+
+.button1:hover{
+	color: black;
+	background-color: white;
+}
 
 /*-- FOOTER --*/
 
@@ -221,5 +193,12 @@ footer p{
 footer ul{
 	text-align: right;
 	padding-top: 10px;
+}
 
+footer a{
+	color: black;
+}
+
+footer a:hover{
+	color: white;
 }
