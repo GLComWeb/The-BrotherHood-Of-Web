@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 
 //form pour les entreprise
 
@@ -7,7 +7,7 @@
 	define('PASS', '');
 	define('DB', 'apolearn');
 
-	include_once('inc_bdd.php');
+	include_once('includes/inc_bdd.php');
 	include("librerie.php");
 
 $form = array('nom', 'adresse', 'code_postal', 'ville', 'telephone', 'siret', 'num_contract', 'num_tva', 'e_mail');
@@ -28,7 +28,7 @@ if (valid_form($_POST, $form))
 		$e_mail = echappement($_POST["e_mail"]);
 
 	//l'integration dans la base de donnee
-		$query = $db->prepare('INSERT INTO entreprise (nom, adresse, code_postal, ville, telephone, siret, num_contract, num_tva, e_mail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		$query = $db->prepare('INSERT INTO entreprise (nom, adresse, code_postal, ville, telephone, siret, num_tva, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 				
 				$query->bindValue(1, $nom, PDO::PARAM_STR);
 				$query->bindValue(2, $adresse, PDO::PARAM_STR);
@@ -36,13 +36,16 @@ if (valid_form($_POST, $form))
 				$query->bindValue(4, $ville, PDO::PARAM_STR);
 				$query->bindValue(5, $telephone, PDO::PARAM_STR);
 				$query->bindValue(6, $siret, PDO::PARAM_STR);
-				$query->bindValue(7, $num_contract, PDO::PARAM_STR);
-				$query->bindValue(8, $num_tva, PDO::PARAM_STR);
-				$query->bindValue(9, $e_mail, PDO::PARAM_STR);
+				$query->bindValue(7, $num_tva, PDO::PARAM_STR);
+				$query->bindValue(8, $e_mail, PDO::PARAM_STR);
 				
-				$query->execute();
-
+				$succes = $query->execute();
 				echo "vous ette bien inscrit";
+
+				if ($succes) {
+					$res = $db->lastInsertId();
+					$_SESSION['idEntreprise'] = $res;
+				}
 }
 else
 {
