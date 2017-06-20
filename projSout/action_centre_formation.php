@@ -42,7 +42,12 @@
     // centre de formation
     if ($success) {
         
-        $idEntreprise  = $_SESSION['idEntreprise'];
+        if (isset($_SESSION['idEntreprise'])) {
+            $idEntreprise = $_SESSION['idEntreprise'];
+        } else {
+            $idEntreprise = 1;
+        }
+        
         $idUtilisateur = $db->lastInsertId();
 
         if ($idUtilisateur != 0) {
