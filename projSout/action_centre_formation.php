@@ -22,8 +22,8 @@
     $password          = strip_tags($_POST['password']);
 
     $requete = $db->prepare('INSERT INTO utilisateur (civilite, nom, prenom, date_naissance, telephone_fixe, telephone_mobile, adresse, code_postal, ville,
-                                                      email, mot_de_passe, role, formation_id, paiement_id)
-                             VALUES (:civil, :nom, :prenom, :dateNaissance, :telFixe, :telMob, :adresse, :codePostal, :ville, :email, :pass, :role, :formationId, :paiementId)');
+                                                      email, mot_de_passe, role)
+                             VALUES (:civil, :nom, :prenom, :dateNaissance, :telFixe, :telMob, :adresse, :codePostal, :ville, :email, :pass, :role)');
     $requete->bindValue(':civil',         $civilite, PDO::PARAM_STR);
     $requete->bindValue(':nom',           $nomUtilisateur, PDO::PARAM_STR);
     $requete->bindValue(':prenom',        $prenomUtilisateur, PDO::PARAM_STR);
@@ -35,9 +35,7 @@
     $requete->bindValue(':ville',         $ville, PDO::PARAM_STR);
     $requete->bindValue(':email',         $email, PDO::PARAM_STR);
     $requete->bindValue(':pass',          $password, PDO::PARAM_STR);
-    $requete->bindValue(':role',          'président', PDO::PARAM_INT);
-    $requete->bindValue(':formationId',   1, PDO::PARAM_INT);
-    $requete->bindValue(':paiementId',    1, PDO::PARAM_INT);
+    $requete->bindValue(':role',          'directeur', PDO::PARAM_INT);
 
     $success = $requete->execute();
 
@@ -54,8 +52,8 @@
             $siret      = strip_tags($_POST['siret']);
             $secteur    = strip_tags($_POST['secteur']);
 
-            $requete = $db->prepare('INSERT INTO centre_de_formation (nom, adresse, code_postal, siret, telephone, secteur, utilisateur_id, formation_id, entreprise_id, messagerie_forum_id)
-                                    VALUES (:nom, :adresse, :codePostal, :siret, :tel, :secteur, :utilisateurId, :formationId, :entrepriseId, :messageId)');
+            $requete = $db->prepare('INSERT INTO centre_de_formation (nom, adresse, code_postal, siret, telephone, secteur, utilisateur_id, entreprise_id)
+                                    VALUES (:nom, :adresse, :codePostal, :siret, :tel, :secteur, :utilisateurId, :entrepriseId)');
             $requete->bindValue(':nom',           $nomCentre, PDO::PARAM_STR);
             $requete->bindValue(':adresse',       $adresse, PDO::PARAM_STR);
             $requete->bindValue(':codePostal',    $codePostal, PDO::PARAM_STR);
@@ -63,12 +61,17 @@
             $requete->bindValue(':tel',           $siret, PDO::PARAM_STR);
             $requete->bindValue(':secteur',       $secteur, PDO::PARAM_STR);
             $requete->bindValue(':utilisateurId', $idUtilisateur, PDO::PARAM_INT);
-            $requete->bindValue(':formationId',   1, PDO::PARAM_INT);
             $requete->bindValue(':entrepriseId',  $idEntreprise, PDO::PARAM_INT);
-            $requete->bindValue(':messageId',     1, PDO::PARAM_INT);
 
             $success = $requete->execute();
             if ($success) {
+                $idCentre = $db->lastInsertId();
+
+                // Mise à jour de l'entreprise_id dans la table utilisateur
+				$query = $db->prepare('UPDATE utilisateur SET entreprise_id ='.$idCentre);
+				$succes = $query->execute();
+
+                $_SESSION['idCentre'] = $idCentre;
                 echo 'Inscription réussi au centre de formation';
             } else { echo '[ERREUR] -  érreur d\inscription au centre de formation';}
 
