@@ -9,23 +9,10 @@
     font-family: 'Alex Brush', cursive;
 */
 
-.sectionContent{
-	padding: 35px 50px;
-	padding-bottom: 100px;
-}
 
-.sectionContent hr{
-	width: 80%;
-}
-
-.sectionContent h4{
-	padding-top: 15px;
-	text-align: center;
-
-}
-
-.sectionContent p{
-	text-align: center;
+p{
+	line-height: 28px;
+  	font-size: 15px;
 }
 
 /*-- HEADER --*/
@@ -146,66 +133,104 @@
 	font-weight: bold;
 }
 
+/*-- SECTION 2 - 3 - 4 --*/
+
+.sectionContent{
+	padding: 35px 50px;
+	padding-bottom: 100px;
+}
+
+.sectionContent hr{
+	width: 80%;
+}
+
+.sectionContent h4{
+	padding-top: 15px;
+	text-align: center;
+}
+
+.sectionContent p{
+	text-align: center;
+}
+
 /*SECTION 5*/
 
-.section5{
-	background: url(../images/yonne-auxerre6.jpg) no-repeat;
-	background-size: cover;
+#contact{
+	background: #3B3B3B url('../images/contact-bg.jpg') no-repeat center center;
+  	background-size: cover;
+  	padding-top: 25px;
+  	padding-bottom: 85px;
 }
 
-.section5 h5{
-	padding-top: 50px;
-	padding-bottom: 20px;
-	letter-spacing: 2px;
+#contact h2{
+	font-family: 'Alex Brush', cursive;
+	font-size: 3.7em;
 	font-weight: bold;
-}
-
-
-.form-group p{
-	padding-bottom: 10px;
-}
-
-.inputLarge{
-	width: 50%;
-	min-height: 30px;
-	display: block;
-	border: 1px solid white;
-	margin: auto;
-}
-
-.inputMessage{
-	width: 50%;
-	height: 200px;
-	display: block;
-	border: 1px solid white;
-	margin: auto;
-}
-
-.button1{
-	display: block;
-	margin: auto;
+	padding-top: 35px;
+	padding-bottom: 80px;
 	text-align: center;
-	width: 50%;
-	height: 40px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-bottom: 30px;
+	background: transparent;
+	color: #ffffff;
+}
+
+#contact .contactInfo{
+	color: #ffffff;
+	padding-left: 35px;
+}
+
+#contact h3{
+	padding-bottom: 20px;
 	font-weight: bold;
-	border : 4px solid #922B21;
+	font-family: 'Lato', sans-serif;
+}
+
+#contact h4{
+	font-size: 20px;
+  	font-weight: bold;
+  	letter-spacing: 1px;
+  	padding-top: 25px;
+  	font-family: 'Lato', sans-serif;
+}
+
+#contact i{
+	padding-right: 10px;
+	font-size: 1.4em;
+}
+
+#contact .contactIcon{
+	padding-bottom: 50px;
+}
+
+	/*Formulaire*/
+
+#contact .form-control{
+	border: 2px solid #ffffff;
+	border-radius: 0;
+	box-shadow: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/*transition: all 0.4s ease-in-out;*/
+}
+
+#contact input{
+	height: 40px;
+}
+
+#contact input[type="submit"]{
 	background-color: #922B21;
-	color: white;
-	transition: all 0.4s ease-in-out;
+	border : 4px solid #922B21;
+	letter-spacing: 1px;
+	height: 50px;
+  	color: #ffffff;
+  	font-weight: bold;
+  	transition: all 0.4s ease-in-out;
 }
 
-.button1:hover{
-	color: black;
-	background-color: white;
+#contact input[type="submit"]:hover{
+	color: #000000;
+	background-color: #ffffff;
 }
 
-.section5 i{
-	padding-bottom: 15px;
-	font-size: 1.3em;
-}
 
 /*-- FOOTER --*/
 
