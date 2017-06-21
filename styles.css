@@ -27,6 +27,11 @@ p{
 	font-size: 1.7em;
 	text-decoration: none;
 	letter-spacing: 2px;
+	transition: all 0.4s ease-in-out;
+}
+
+.navbar-brand:hover{
+	color: #ffffff;
 }
 
 .navbar-right li a{
@@ -39,6 +44,7 @@ p{
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-family: 'Lato', sans-serif;
+	transition: all 0.4s ease-in-out;
 }
 
 .navbar-right li a:hover{
@@ -227,7 +233,7 @@ p{
 }
 
 #contact input[type="submit"]:hover{
-	color: #000000;
+	color: #2ECCFA;
 	background-color: #ffffff;
 }
 
@@ -250,6 +256,7 @@ footer ul{
 
 footer a{
 	color: #ffffff;
+	transition: all 0.4s ease-in-out;
 }
 
 footer a:hover{
