@@ -6,7 +6,7 @@ $(function() {
     $('#siret').focusout(checkSiret);
     $('#nom').focusout(checkNom);
     $('#prenom').focusout(checkPrenom);
-    $('#telephone').focusout(checkTel);
+    $('#telephone').focusout(checkTelephone);
     // Vérifie la présence de l'email dans la base de donnée
     $('#email').focusout(checkEmail);
 
@@ -27,47 +27,41 @@ var isValidEmail;
  */
 function sendPreInscription(evt) {
     evt.preventDefault();
-    if ( isValidEntreprise && isValidSiret && isValidNom && isValidPrenom && isValidTelephone && isValidEmail ) {
+    if ( isValidEntreprise && isValidSiret && isValidNom && isValidPrenom && isValidTelephone 
+            && isValidEmail ) {
+
+        var nomEntreprise = $('#nomEntreprise').val();
+        var siret = $('#siret').val();
+        var nom = $('#nom').val();
+        var prenom = $('#prenom').val();
+        var telephone = $('#telephone').val();
+        var email = $('#email').val();
+
         $.ajax({
-        type: 'POST',
-        url:  'check_email_ajax.php',
-        data: { nom: nom, email: email },
-        dataType: 'json'
-        
-        }).done(function(reponse) {
-        console.log(reponse);
-
-        }).fail(function(erreur) {
-        console.log(erreur);
-        });
-    }
-
-    if (pseudo == '') {
-        erreur.html('<p>[ERREUR] - vous devez fournir votre pseudo</p>');
-    }
-
-    if (message == '') {
-        erreur.html('<p>[ERREUR] - vous devez fournir votre message</p>');
-    }
-    
-    $.ajax({
-        type: 'POST',
-        url: 'saveInBdd.php',
-        data: { pseudo: pseudo, message: message },
-
-    }).done(function(reponse) {
-            //console.log('Reponse:' + reponse);
-
-            if (reponse == true) {
-                $('#chatEcran').html(reponse);
+            type: 'POST',
+            url:  'preInscription_ajax.php',
+            data: { nomEntreprise: nomEntreprise,
+                    siret: siret,
+                    nom: nom,
+                    prenom: prenom,
+                    telephone: telephone,
+                    email: email,
+                    },
+            dataType: 'json'
             
+        }).done(function(reponse) {
+            if (reponse['result']) {
+                $('#message').html(reponse['raison']);
             } else {
-                erreur.html('<p>[ERREUR] - Une érreur est survenue durant la requête de la base de donnée</p>');
+                $('#message').html(reponse['raison']);
             }
 
-        }).fail(function(reponse) {
-            erreur.html('<p>[ERREUR] - Une érreur est survenue sur la fonction ajax!</p>' );
-        });
+            }).fail(function(erreur) {
+                console.log(erreur);
+            });
+    } else {
+        $('#message').html('[ERREUR] - Vous devez remplir tous les champs!');
+    }
 } // -------- FIN function --------
 
 function checkEntreprise() {
@@ -78,6 +72,7 @@ function checkEntreprise() {
     } else {
         isValidEntreprise = false;
     }
+    console.log(isValidEntreprise);
 }
 
 function checkSiret() {
@@ -88,6 +83,7 @@ function checkSiret() {
     } else {
         isValidSiret = false;
     }
+    console.log(isValidSiret);
 }
 
 function checkNom() {
@@ -98,6 +94,7 @@ function checkNom() {
     } else {
         isValidNom = false;
     }
+    console.log(isValidNom);
 }
 
 function checkPrenom() {
@@ -108,6 +105,7 @@ function checkPrenom() {
     } else {
         isValidPrenom = false;
     }
+    console.log(isValidPrenom);
 }
 
 function checkTelephone() {
@@ -118,6 +116,7 @@ function checkTelephone() {
     } else {
         isValidTelephone = false;
     }
+    console.log(isValidTelephone);
 }
 
 /**
@@ -130,5 +129,6 @@ function checkEmail() {
         isValidEmail = true;
     } else {
         isValidEmail = false;
-    }    
+    }
+    console.log(isValidEmail);
 }

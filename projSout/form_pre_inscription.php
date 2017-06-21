@@ -2,6 +2,8 @@
 <html>
     <header>
         <meta charset="utf-8" />
+        <script src="assets/js/jquery-3.2.1.js"></script>
+        <script src="assets/js/pre_inscription.js"></script>
         <title></title>
     </header>
     <body>
@@ -29,5 +31,6 @@
 
             <input type="submit" value="Valider"/>
         </form>
+        <div id="message"></div>
     </body>
 </html>
