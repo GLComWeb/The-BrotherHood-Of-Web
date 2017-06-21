@@ -139,7 +139,7 @@
 									</div> <!-- ./..row -->
 							</div> <!-- ./..col-sm-12 col-md-6 -->
 							<div class="col-sm-12 col-md-6">
-								<form  method="POST" action="#" class="form-group">
+								<form  method="POST" action="inc/sendEmail.php" class="form-group" id="formulaire" onsubmit="event.preventDefault();">
 									<div class="col-sm-6 col-md-6">
 										<p><input class="form-control" type="text" name="nom" id="nom" placeholder="Nom"/></p>
 									</div> <!-- ./..col-sm-6 col-md-6 -->
@@ -147,18 +147,19 @@
 										<p><input class="form-control" type="text" name="prenom" id="prenom" placeholder="Prénom"/></p>
 									</div> <!-- ./..col-sm-6 col-md-6 -->
 									<div class="col-sm-12 col-md-12"">
-										<p><input class="form-control" type="email" name="email" id="email" placeholder="Adresse mail"/></p>
+										<p><input class="form-control" type="email" name="email" id="email" placeholder="Adresse mail" required/></p>
 									</div> <!-- ./..col-sm-12 col-md-12" -->
 									<div class="col-sm-12 col-md-12"">
 										<p><input class="form-control" type="objet" name="objet" id="objet" placeholder="Objet"/></p>
 									</div> <!-- ./..col-sm-12 col-md-12" -->
 									<div class="col-sm-12 col-md-12">
-										<p><textarea class="form-control" rows="7" name="message" placeholder="Message"></textarea></p>
+										<p><textarea id="message" class="form-control" rows="7" name="message" placeholder="Message" required></textarea></p>
 									</div> <!-- ./..col-sm-12 col-md-12 -->
 									<div class="col-sm-offset-4 col-sm-8 col-md-offset-4 col-md-8 ">
-										<input type="submit" class="form-control" value="Envoyer"/>
+										<input id="valider" type="submit" class="form-control" value="Envoyer"/>
 									</div>
 								</form>
+								<div id="confirmation"></div>
 							</div> <!-- ./..col-sm-12 col-md-6 -->
 						</div> <!-- ./..row -->
 					</div>  <!-- ./..col-xs-12 -->
