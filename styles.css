@@ -1,28 +1,37 @@
 @import "bootstrap.css";
-@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Lato|Permanent+Marker');
-
-/*
-    font-family: 'Permanent Marker', cursive;
-
-    font-family: 'Lato', sans-serif;
-
-    font-family: 'Alex Brush', cursive;
-*/
-
+@import url('https://fonts.googleapis.com/css?family=Lato|Mogra|Permanent+Marker|Alex+Brush');
 
 p{
 	line-height: 28px;
   	font-size: 15px;
 }
 
-/*-- HEADER --*/
+/***********************************************-- HEADER --***********************************************/
 
-.main-nav{
-	background-color: #6E6E6E;
+.custom-navbar {
+    background: #6E6E6E;
+    margin-bottom: 0;
 }
 
-.navbar-brand{
-	color: #2ECCFA;
+@media(min-width:768px){
+	.custom-navbar{
+		background-color: #6E6E6E;
+		padding-left: 6px;
+		padding-right: 6px;
+        border-bottom: 0;
+        background: 0 0;
+        transition: all 0.4s ease-in-out;
+	}
+	.custom-navbar.top-nav-collapse{
+		padding-left: 6px;
+		padding-right: 6px;
+		background-color: #6E6E6E;
+		transition: all 0.4s ease-in-out;
+	}
+}
+
+.custom-navbar .navbar-brand{
+	color: #33B5FF;
 	font-weight: bold;
 	font-size: 1.7em;
 	text-decoration: none;
@@ -30,11 +39,11 @@ p{
 	transition: all 0.4s ease-in-out;
 }
 
-.navbar-brand:hover{
+.custom-navbar .navbar-brand:hover{
 	color: #ffffff;
 }
 
-.navbar-right li a{
+.custom-navbar .navbar-right li a{
 	color: #ffffff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -47,27 +56,27 @@ p{
 	transition: all 0.4s ease-in-out;
 }
 
-.navbar-right li a:hover{
-	color: #2ECCFA;
+.custom-navbar .navbar-right li a:hover{
+	color: #33B5FF;
 }
 
-.navbar-right li.active a{
+.custom-navbar .navbar-right li.active a{
 	background-color: rgba(0,0,0,.1);
 }
 
 	/*-- Toggle --*/
-.navbar-toggle{
+.custom-navbar .navbar-toggle{
 	border: 1px solid #FFFFFF;
 }
 
-.icon-bar{
+.custom-navbar .icon-bar{
 	background-color: #FFFFFF;
 }
 
 
-/*-- SECTION 1 --*/
+/***********************************************-- SECTION 1 --***********************************************/
 
-#home {
+#home{
   background-size: cover;
   background-position: center;
   background-color: silver;
@@ -83,21 +92,21 @@ p{
   background: url(../images/accueil1.jpg) fixed;
   background-size: cover;
 }
-#home h1 {
+#home h1{
   font-size: 50px;
   letter-spacing: 4px;
   font-weight: bold;
+  padding-top: 35px;
 }
-
-#home h3 {
+#home h3{
   font-size: 17px;
   letter-spacing: 2px;
   font-family: 'Lato', sans-serif;
 }
-#home hr {
+#home hr{
   width: 240px;
 }
-#home .btn {
+#home .btn{
   background: transparent;
   border: 4px solid #ffffff;
   border-radius: 0;
@@ -110,67 +119,65 @@ p{
   margin-right: 16px;
   transition: all 0.4s ease-in-out;
 }
-#home .btn:hover {
-  background: #2ECCFA;
+#home .btn:hover{
+  background: #33B5FF;
   border-color: transparent;
 }
-#home .btn-danger {
-  background: #2ECCFA;
+#home .btn-danger{
+  background: #33B5FF;
   border-color: transparent;
 }
-#home .btn-danger:hover {
-	border: 4px solid #ffffff;
+#home .btn-danger:hover{
+	border: 4px solid #33B5FF;
   	border-radius: 0;
 	background: transparent;
-  	color: #ffffff;
+  	color: #33B5FF;
 }
 
-/*-- SECTION 2 --*/
+
+/***********************************************-- SECTION 2 --***********************************************/
 
 .aboutUs{
 	text-align: center;
 	padding-top: 25px;
 	padding-bottom: 25px;
 }
-
 .aboutUs h2{
 	font-family: 'Alex Brush', cursive;
 	font-size: 3.5em;
 	font-weight: bold;
+	padding-top: 25px;
 }
 
-/*-- SECTION 2 - 3 - 4 --*/
+/***********************************************-- SECTION 2 - 3 - 4 --***********************************************/
 
 .sectionContent{
 	padding: 35px 50px;
 	padding-bottom: 100px;
 }
-
 .sectionContent hr{
 	width: 80%;
 }
-
 .sectionContent h4{
 	padding-top: 15px;
 	text-align: center;
 }
-
 .sectionContent p{
 	text-align: center;
 }
 
-/*SECTION 5*/
+
+/***********************************************-- SECTION 5 --***********************************************/
 
 #contact{
-	background: #3B3B3B url('../images/contact-bg.jpg') no-repeat center center;
+	background: #3B3B3B url('../images/contact.jpg') fixed;
   	background-size: cover;
   	padding-top: 25px;
   	padding-bottom: 85px;
 }
-
 #contact h2{
 	font-family: 'Alex Brush', cursive;
-	font-size: 3.7em;
+	font-size: 4.2em;
 	font-weight: bold;
 	padding-top: 35px;
 	padding-bottom: 80px;
@@ -178,18 +185,15 @@ p{
 	background: transparent;
 	color: #ffffff;
 }
-
 #contact .contactInfo{
 	color: #ffffff;
 	padding-left: 35px;
 }
-
 #contact h3{
 	padding-bottom: 20px;
 	font-weight: bold;
 	font-family: 'Lato', sans-serif;
 }
-
 #contact h4{
 	font-size: 20px;
   	font-weight: bold;
@@ -197,17 +201,16 @@ p{
   	padding-top: 25px;
   	font-family: 'Lato', sans-serif;
 }
-
 #contact i{
 	padding-right: 10px;
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
-
 #contact .contactIcon{
 	padding-bottom: 50px;
 }
 
-	/*Formulaire*/
+
+/***********************************************-- Formulaire --***********************************************/
 
 #contact .form-control{
 	border: 2px solid #ffffff;
@@ -215,30 +218,25 @@ p{
 	box-shadow: none;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	/*transition: all 0.4s ease-in-out;*/
 }
-
 #contact input{
 	height: 40px;
 }
-
 #contact input[type="submit"]{
-	background-color: #2ECCFA;
-	border : 4px solid #2ECCFA;
+	background-color: #33B5FF;
+	border : 4px solid #33B5FF;
 	letter-spacing: 1px;
 	height: 50px;
   	color: #ffffff;
   	font-weight: bold;
   	transition: all 0.4s ease-in-out;
 }
-
 #contact input[type="submit"]:hover{
-	color: #2ECCFA;
+	color: #33B5FF;
 	background-color: #ffffff;
 }
 
-
-/*-- FOOTER --*/
+/***********************************************-- FOOTER --***********************************************/
 
 footer{
 	background-color: #6E6E6E; 
@@ -260,5 +258,5 @@ footer a{
 }
 
 footer a:hover{
-	color: #2ECCFA;
+	color: #33B5FF;
 }

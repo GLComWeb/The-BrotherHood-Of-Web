@@ -1,4 +1,22 @@
-// FORMULAIRE DE CONTACT
+// BARRE DE NAVIGATION //
+
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+// SUR MOBILE : ON CACHE LE MENU APRES CLICK SUR UN LIEN //
+$(function(){
+	$('.navbar-collapse a').click(function(){
+        $(".navbar-collapse").collapse('hide');
+ 	});
+});
+
+// FORMULAIRE DE CONTACT //
+
 $(function(){
 	$("#valider").on("click", validerForm);
 	$("#nom").on("change", changeNom);
