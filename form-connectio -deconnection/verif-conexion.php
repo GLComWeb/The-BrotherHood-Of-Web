@@ -26,7 +26,7 @@
 			//verif mot de passe
 			$mot_de_passe = md5($mot_de_passe);
 
-			if($mot_de_passe = $result['mot_de_passe'])
+			if($mot_de_passe == $result['mot_de_passe'])
 			{
 
 				//si mdp concordent
