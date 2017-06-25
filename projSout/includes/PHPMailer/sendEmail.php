@@ -1,6 +1,6 @@
  <?php
 
- require('PHPMailer/PHPMailerAutoload.php');
+ require_once('PHPMailerAutoload.php');
 
  //include_once('PHPMailer/PHPMailerAutoload.php');
  $phpMailer = new PHPMailer;
@@ -10,20 +10,20 @@ define('LEN_NAME', 2);		// longueur du nom
 define('LEN_MESSAGE', 15);  // longueur du message
 
 // Replace this with your own email address
-$expediteur = 'SECRET';
-//$message = '';
+$expediteur = 'txwillys@gmail.com';
+$message = '';
 
 //if ( isset($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'] ) ) {
 if ( true ) {
-	//Tu peux modifier ça si tu veux Depuis  - 
-	//$subject = "Depuis ";  
+	//Tu peux modifier ça si tu veux Depuis glcomweb.com - 
+	//$subject = "Depuis glcomweb.com";  
 	
     //$name 			 = trim(stripslashes($_POST['name']));
     $name 			 = 'testExped';
 
 	// Vérifie que l'adresse email est correct
 	//$destinataire 	 = filter_var( trim(stripslashes($_POST['email'])), FILTER_VALIDATE_EMAIL );
-	$destinataire 	 = 'SECRET';
+	$destinataire 	 = 'test5421@yopmail.com';
 
     //$subject 		 = trim(stripslashes($_POST['subject']));
     $subject 		 = 'Un sujet test';
@@ -65,8 +65,8 @@ if ( true ) {
    // Email Headers
 	/*    
 	Avant :(
-	$headers = "From:\"Gérard Lerandy\"<> " . $from . "\r\n";
-	$headers .= "Reply-To:\"Gérard Lerandy\"<> ". $email . "\r\n";
+	$headers = "From:\"Gérard Lerandy\"<gerard.lerandy@gmail.com> " . $from . "\r\n";
+	$headers .= "Reply-To:\"Gérard Lerandy\"<gerard.lerandy@gmail.com> ". $email . "\r\n";
 	$headers est la variable qui contient l'entete du mail
 	*/
 
@@ -79,31 +79,28 @@ if ( true ) {
 
     if (empty($error)) {
 
-	  
-      //$mail = mail($destinataire, $subject, $message, $headers);
+	  /*ini_set('SMPT', 'smtp.gmail.com');
+	  ini_set('smtp_port', '465');
+      ini_set("sendmail_from", $expediteur); // for windows server
+      $mail = mail($destinataire, $subject, $message, $headers);*/
 
 	  $phpMailer->IsSMTP();
-	  $phpMailer->SMTPDebug = 3;
-	  $phpMailer->Debugoutput = 'html';
-	  $phpMailer->Host = 'hote_smtp';
+	  $phpMailer->Host = 'smtp.gmail.com';
 	  $phpMailer->SMTPAuth = true;
 	  $phpMailer->SMTPSecure = 'ssl';
-	  $phpMailer->Port = 587;
-	  $phpMailer->UserName = 'SECRET';
-	  $phpMailer->Password = 'SECRET';
-	  $phpMailer->setFrom($expediteur, 'nom_utilisateur');
-	  $phpMailer->AddAddress($destinataire);
+	  $phpMailer->Port = 465;
+	  $phpMailer->UserName = 'txwillys';
+	  $phpMailer->Password = 'aWc7r6iuVx';
+	  $phpMailer->setFrom($expediteur, 'txwillys');
+	  $phpMailer->addAddress($destinataire);
 	  $phpMailer->Subject = $subject;
 	  $phpMailer->Body 	  = $message;
-	  $phpMailer->ContentType = 'text/plain';
-	  $phpMailer->isHTML(false);
-	  $phpMailer->CharSet = 'windows-1250';
 
 	  //if ($mail) { echo "Email Envoyé!"; }
 	  if ( $phpMailer->send() ) { echo "Email Envoyé!"; }
       else { 
 		  echo "Erreur dans l'envoi du mail";
-		  echo 'Mailer error: ' . $phpMailer->ErrorInfo;
+		  echo 'Mailer error: ' . $mail->ErrorInfo;
 	  }
 		
 	} # end if - no validation error
