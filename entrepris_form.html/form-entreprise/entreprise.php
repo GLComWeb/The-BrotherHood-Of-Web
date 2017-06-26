@@ -1,5 +1,5 @@
 <?php 
-	include_once('../includes/head_bootstrap.html');
+	include_once('includes/head_bootstrap.html');
 ?>
 	<title>Ajout d'une entreprise</title>
 </head>
@@ -12,7 +12,7 @@
 
 						<form class="form-inline" method="POST" action="action_entreprise.php">
 
-							<?php include_once('../includes/utilisateur_form.html'); ?>
+							<?php include_once('includes/utilisateur_form.html'); ?>
 
 							<p>Votre entreprise:</p>
 							<div class="row">
