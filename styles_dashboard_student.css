@@ -8,16 +8,72 @@ body{
 /***********************************************-- HEADER --***********************************************/
 
 .custom-navbar {
-    background: #6E6E6E;
-    margin-bottom: 0;
+    background-color: #1C2B36;
+	z-index: 904;
+	box-shadow: 2px 0 3px rgba(0,0,0,.5);
+	height: 66px;
+	width: 100%;
+	min-width: 320px;
+	padding: 5px 32px 0 40px;
 }
 
 /***********************************************-- SIDEBAR --***********************************************/
+
+.al-sidebar{
+	width: 180px;
+	top: 66px;
+	left: 0;
+	z-index: 904;
+	display: block;
+	min-height: 100%;
+	background-color: #1C2B36;
+	height: 100%;
+	position: fixed;
+}
 
 .al-sidebar-list{
 	margin: 0;
 	padding: 18px 0 0;
 	list-style: none;
 }
+
+.al-sidebar-list-item.dashboard{
+	background-color: #209E91;
+}
+
+.al-sidebar-list-item.dashboard a:hover{
+	color: #FFFFFF;
+}
+
+
+.al-sidebar-list-item{
+	display: block;
+	position: relative;
+	float: none;
+	padding: 0;
+}
+
+.al-sidebar-list-item a{
+	color: #FFFFFF;
+	display: block;
+	height: 42px;
+	padding-left: 18px;
+	font-size: 13px;
+	text-decoration: none;
+	line-height:42px;
+	cursor: pointer;
+}
+
+.al-sidebar-list-item a:hover{
+	color: #209E91;
+}
+
+.al-sidebar-list-item a i{
+	margin-right: 18px;
+	width: 16px;
+	display: inline-block;
+}
+
+
 
 /***********************************************-- FOOTER --***********************************************/
