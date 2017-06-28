@@ -1,21 +1,8 @@
-@import 'styles.css';
-
 body{
 	background-color: ##E6E6E6;
 	padding-top: 80px;
 }
 
-/***********************************************-- HEADER --***********************************************/
-
-.custom-navbar {
-    background-color: #1C2B36;
-	z-index: 904;
-	box-shadow: 2px 0 3px rgba(0,0,0,.5);
-	height: 66px;
-	width: 100%;
-	min-width: 320px;
-	padding: 5px 32px 0 40px;
-}
 
 /***********************************************-- SIDEBAR --***********************************************/
 
@@ -74,6 +61,61 @@ body{
 	display: inline-block;
 }
 
+/***********************************************-- MENU TOP --***********************************************/
+
+.custom-navbar {
+    background-color: #1C2B36;
+	z-index: 904;
+	box-shadow: 2px 0 3px rgba(0,0,0,.5);
+	height: 66px;
+	width: 100%;
+	min-width: 320px;
+	padding: 5px 32px 0 40px;
+}
+
+.custom-navbar .scrolled{
+	background-color:rgba(0,0,0,.85);
+}
+
+.custom-navbar .navbar-right a{
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 600;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	transition: all 0.4s ease-in-out;
+}
+
+.custom-navbar .navbar-right a:hover{
+	color: #1C2B36;
+}
+
+.custom-navbar .navbar-right a i{
+	margin-right: 7px;
+	width: 16px;
+	display: inline-block;
+}
+
+	/*-- Toggle --*/
+.custom-navbar .navbar-toggle{
+	border: 1px solid #FFFFFF;
+}
+
+.custom-navbar .icon-bar{
+	background-color: #FFFFFF;
+}
+
+
+/***********************************************-- CONTENT --***********************************************/
+
+main{
+	padding-left: 60px;
+}
+
+.calendar{
+	
+}
 
 
 /***********************************************-- FOOTER --***********************************************/
