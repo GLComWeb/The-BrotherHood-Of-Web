@@ -1,9 +1,9 @@
 var isSujetValid = false;
 var isTextValid = false;
+var nbrSujet = 0;
 
 $(function() {
     getSujetDiscussion();
-
     var sujet  = $('#sujet');
     var texte  = $('#texte');
     var btnValider = $('#valider');
@@ -89,22 +89,35 @@ function getSujetDiscussion() {
         dataType: 'json',
     
     }).done(function(reponse) {
-        var table  =  $('.table');
+        var tableBody  =  $('tbody');
+        nbrSujet = reponse[0]['nbr_sujet'];
+
+        var aSujet  = '<tr>\
+                        <td><a href="#" id="aSujet';
+        var aTexte  = '"></a>\
+                            <p id="aTexte';
+        var aDate = '"></p>\
+                            <p id="aDate';
+        var fin = '"></p>\
+                        </td>\
+                      </tr></tbody>';
         
         $.each(reponse, function(index, element) {
-           table.append('<tr>\
-                            <td><a href="#" id="aSujet"></a>' +
-                            '<p id="aTexte"></p>'
-                           +'<p id="aDate"></p>\
-                           </td>\
-                        </tr>');
+           tableBody.append(aSujet + index +
+                            aTexte + index +
+                            aDate  + index +
+                            fin);
 
-            $('#aSujet').text(element['sujet']);
-            $('#aTexte').text(element['texte']);
-            $('#aDate').text(element['date_post']);
-        })
+            $('#aSujet' + index).text(element['sujet']);
+            $('#aTexte' + index).text(element['texte']);
+            $('#aDate'  + index).text(element['date_post']);
+        });
     
     }).fail(function(reponse) {
         console.log('reponse: ' + reponse);
     });
+}
+
+function ajouterSujet(index) {
+    
 }
