@@ -33,8 +33,8 @@
                                 <p><input type="text" class="form-control input-sm" id="sujet" name="sujet" placeholder="sujet" required></p>
                             </div>
                             <div class="form-group">
-                                <label for="sujet">Votre text</label>
-                                <p><textarea class="form-control" rows="3"></textarea></p>
+                                <label for="text">Votre text</label>
+                                <p><textarea class="form-control" id="text" rows="3"></textarea></p>
                             </div>
                         </div>
                         <div class="modal-footer">
