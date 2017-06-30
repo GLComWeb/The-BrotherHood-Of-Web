@@ -8,15 +8,26 @@
     <main class="container-fluid">
         <section class="row">
             
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <p>Nombre de sujet</p>
             </div>
             
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <p>trie des sujets</p>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="nombreSujetPage">Nombre de sujet par page : </label>
+                    <select name="nombreSujetPage" id="nombreSujetPage">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#monModal">
                     <i class="fa fa-plus" aria-hidden="true"></i> Ajouter discussion
                 </button>
@@ -50,9 +61,11 @@
             </div><!-- /.modal -->
         </section>
         
-        <section class="row">
+        <section class="row" style="padding-top: 20px;">
             <div class="col-sm-12 thread">
-                <table class="table table-responsive table-striped">                    
+                <p>Page: <a class="page"></a>/<span class="nombreTotalSujet"></p>
+                <table class="table table-striped">
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
