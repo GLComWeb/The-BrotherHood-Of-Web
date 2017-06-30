@@ -82,25 +82,57 @@
 				<div class="row">
 					<!-- CONTENT -->
 					<div class="col-xs-12">
-						<!-- CALENDAR -->
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-8 calendar">
-								<h2>Agenda</h2>
-									<!-- FORUM & CHAT -->
-									<div class="row">
-										<div class="col-xs-12 col-sm-12 col-md-6 homework">
-											<h2>Modules</h2>
-										</div> <!-- ./..col-xs-12 col-sm-12 col-md-6 homework -->
-										<div class="col-xs-12 col-sm-12 col-md-6 forum">
-											<h2>Forum</h2>
-										</div> <!-- ./..col-xs-12 col-sm-12 col-md-6 forum -->
-									</div> <!-- ./..row -->
-							</div> <!-- ./..col-xs-12 col-sm-12 col-md-8 calendar -->
-							<div class="col-xs-12 col-sm-12 col-md-4 chat">
-								<h2>Chat</h2>
-							</div> <!-- ./..col-xs-12 col-sm-12 col-md-4 chat -->
-						</div> <!-- ./..row calendar -->
-						
+						<h1>Profil</h1>
+							<form class="form-group" method="post" action="#">
+								<fieldset>
+									<h3>Informations générales</h3>
+									<hr/>
+									<label for="nom">Nom </label>
+									<input class="form-control" type="text" name="nom" id="nom"/>
+									
+									<p><label for="prenom">Prénom </label>
+									<input class="form-control" type="text" name="nom" id="nom"/></p>
+
+									<p><label>Sexe : </label> 
+									<label for="sexe"> H </label><input type="radio" name="sexe" id="homme" value="H"/>
+									<label for="sexe"> F </label><input type="radio" name="sexe" id="femme" value="F"/></p>
+
+									<p><label for="date_de_naissance">Date de naissance </label>
+									<input class="form-control" type="date" name="date_de_naissance" id="date_de_naissance"/></p>
+								</fieldset>
+								
+								<fieldset>
+									<h3>Informations de contact</h3>
+									<hr/>
+									<p><label for="email">Adresse mail </label>
+									<input class="form-control" type="email" name="email" id="email"/></p>
+
+									<p><label for="telephone">Téléphone </label>
+									<input class="form-control" type="tel" name="telephone" id="telephone"/></p>
+
+									<p><label for="adresse">Adresse </label>
+									<input class="form-control" type="adresse" name="adresse" id="adresse"/></p>
+
+									<p><label for="code_postal">Code postal </label>
+									<input class="form-control" type="text" name="code_postal" id="code_postal"/></p>
+
+									<p><label for="ville">Ville </label>
+									<input class="form-control" type="text" name="ville" id="ville"/></p>
+
+									<p><label for="pays">Pays </label>
+									<input class="form-control" type="text" name="pays" id="pays"/></p>
+								</fieldset>
+
+								<fieldset>
+									<h3>Changer son mot de passe</h3>
+									<hr/>									
+									<p><label for="password">Nouveau mot de passe </label>
+									<input class="form-control" type="password" name="password" id="password"/></p>
+
+									<p><label for="conf_password">Confirmation du mot de passe </label>
+									<input class="form-control" type="password" name="conf_password" id="password"></p>
+								</fieldset>
+							</form>
 					</div> <!-- ./..col-xs-12 -->
 				</div> <!-- ./..row -->
 			</div> <!-- ./..side-body -->
