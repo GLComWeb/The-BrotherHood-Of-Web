@@ -12,6 +12,7 @@ require_once('includes/inc_bdd.php'); // Inclusion essentielle
 
 $return = array();
 //$nombreSujet = $_GET('nombreSujet');
+$offset = $_POST('offset');
 
 $requete = $db->prepare('SELECT COUNT(*) as nbr_sujet FROM discussion');
 $succes = $requete->execute();

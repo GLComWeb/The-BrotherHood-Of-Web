@@ -1,4 +1,4 @@
-<?php require_once('includes/head_bootstrap.html'); ?>
+<?php require_once('includes/head_bootstrap.html');?>
     <script src="assets/js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <script src="assets/js/gestion_discussion.js"></script>
@@ -9,7 +9,7 @@
         <section class="row">
             
             <div class="col-sm-3">
-                <p>Nombre de sujet</p>
+                <p><span class="nombreTotalSujet"></span> sujets.</p>
             </div>
             
             <div class="col-sm-3">
@@ -63,7 +63,7 @@
         
         <section class="row" style="padding-top: 20px;">
             <div class="col-sm-12 thread">
-                <p>Page: <a class="page"></a>/<span class="nombreTotalSujet"></p>
+                <p><a class="precedent"></a>  Page:  <span class="page"></span> / <span class="nombreTotalPage"></span><a class="suivant"></a></p>
                 <table class="table table-striped">
                     <tbody></tbody>
                 </table>
@@ -71,4 +71,3 @@
         </section>
     </main>
 </body>
-        
