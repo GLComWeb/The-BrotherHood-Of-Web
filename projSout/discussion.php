@@ -5,18 +5,18 @@
     <title>Forum de discussion</title>
 </head>
 <body>
-    <main class="container-fluid">
+    <main class="container">
         <section class="row">
             
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <p><span class="nombreTotalSujet"></span> sujets.</p>
             </div>
             
-            <div class="col-sm-3">
+            <!--<div class="col-sm-3">
                 <p>trie des sujets</p>
-            </div>
+            </div>-->
 
-            <div class="col-sm-3">
+            <!--<div class="col-sm-3">
                 <div class="form-group">
                     <label for="nombreSujetPage">Nombre de sujet par page : </label>
                     <select name="nombreSujetPage" id="nombreSujetPage">
@@ -25,9 +25,9 @@
                         <option value="15">15</option>
                     </select>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#monModal">
                     <i class="fa fa-plus" aria-hidden="true"></i> Ajouter discussion
                 </button>
@@ -63,7 +63,6 @@
         
         <section class="row" style="padding-top: 20px;">
             <div class="col-sm-12 thread">
-                <p><a class="precedent"></a>  Page:  <span class="page"></span> / <span class="nombreTotalPage"></span><a class="suivant"></a></p>
                 <table class="table table-striped">
                     <tbody></tbody>
                 </table>
