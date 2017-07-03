@@ -81,66 +81,101 @@
 			<div class="side-body">
 				<div class="row">
 					<!-- CONTENT -->
-					<div class="col-xs-12">
+					<div class="col-md-8">
+
+						<?php // A des fins de test
+                      		if (isset($_SESSION['idFormation']) ) {
+                       			echo '<h4>'.$_SESSION['idFormation'].'</h4>';
+                      		}
+                		?>
+                		
 						<h1>Profil</h1>
-							<form class="form-group" method="post" action="#">
+							<form class="form-group" method="post" action="action_eleve.php">
 								<fieldset>
 									<h3>Informations générales</h3>
 									<hr/>
-									<label for="nom">Nom </label>
-									<input class="form-control" type="text" name="nom" id="nom"/>
-									
-									<p><label for="prenom">Prénom </label>
-									<input class="form-control" type="text" name="nom" id="nom"/></p>
+									<div class="col-sm-12 col-md-6">
+										<label for="civilite">Civilité :</label>
+            							<p><select class="form-control" name="civilite" id="civilite">
+	               							<option value="Mr">Monsieur</option>
+								            <option value="Mme">Madame</option>
+								            <option value="Mme">Mademoiselle</option>
+            							</select></p>
 
-									<p><label>Sexe : </label> 
-									<label for="sexe"> H </label><input type="radio" name="sexe" id="homme" value="H"/>
-									<label for="sexe"> F </label><input type="radio" name="sexe" id="femme" value="F"/></p>
+            							<p><label for="prenomUtilisateur">Prénom *</label>
+										<input class="form-control" type="text" name="prenomUtilisateur" id="prenomUtilisateur" required/></p>
+									</div> <!-- ./..col-sm-12 col-md-6 -->
+									<div class="col-sm-12 col-md-6">
+										<label for="nomUtilisateur">Nom *</label>
+										<input class="form-control" type="text" name="nomUtilisateur" id="nomUtilisateur" required/>
 
-									<p><label for="date_de_naissance">Date de naissance </label>
-									<input class="form-control" type="date" name="date_de_naissance" id="date_de_naissance"/></p>
+										<p><label for="dateNaissance">Date de naissance *</label>
+										<input class="form-control" type="date" name="dateNaissance" id="dateNaissance" required/></p>
+									</div> <!-- ./..col-sm-12 col-md-6 -->
 								</fieldset>
 								
 								<fieldset>
 									<h3>Informations de contact</h3>
 									<hr/>
-									<p><label for="email">Adresse mail </label>
-									<input class="form-control" type="email" name="email" id="email"/></p>
 
-									<p><label for="telephone">Téléphone </label>
-									<input class="form-control" type="tel" name="telephone" id="telephone"/></p>
+									<div class="col-sm-12 col-md-6">
+										<p><label for="adresse">Adresse *</label>
+										<input class="form-control" type="adresse" name="adresse" id="adresse" required/></p>
 
-									<p><label for="adresse">Adresse </label>
-									<input class="form-control" type="adresse" name="adresse" id="adresse"/></p>
+										<p><label for="codePostal">Code postal *</label>
+										<input class="form-control" type="text" name="codePostal" id="codePostal"/></p>
 
-									<p><label for="code_postal">Code postal </label>
-									<input class="form-control" type="text" name="code_postal" id="code_postal"/></p>
+										<p><label for="ville">Ville *</label>
+										<input class="form-control" type="text" name="ville" id="ville"/></p>
 
-									<p><label for="ville">Ville </label>
-									<input class="form-control" type="text" name="ville" id="ville"/></p>
+										<p><label for="pays">Pays *</label>
+										<input class="form-control" type="text" name="pays" id="pays"/></p>
+									</div> <!-- ./..col-sm-12 col-md-6 -->
+									<div class="col-sm-12 col-md-6">
+										<p><label for="telFixe">Numéro de telephone fixe *</label>
+	                					<input type="text" class="form-control" id="telFixe" name="telFixe" required></p>
 
-									<p><label for="pays">Pays </label>
-									<input class="form-control" type="text" name="pays" id="pays"/></p>
+	                					<label for="telMobile">Numéro de telephone mobile *</label>
+	                					<p><input type="text" class="form-control" id="telMobile" name="telMobile" required></p>
+
+	                					<p><label for="email">Adresse mail *</label>
+										<input class="form-control" type="email" name="email" id="email" required/></p>
+									</div> <!-- ./..col-sm-12 col-md-6 -->
 								</fieldset>
 
 								<fieldset>
 									<h3>Changer son mot de passe</h3>
-									<hr/>									
-									<p><label for="password">Nouveau mot de passe </label>
-									<input class="form-control" type="password" name="password" id="password"/></p>
+									<hr/>	
+									<div class="col-sm-12 col-md-6">								
+										<p><label for="password">Nouveau mot de passe *</label>
+										<input class="form-control" type="password" name="password" id="password"/></p>
+									</div> <!-- ./..col-sm-12 col-md-6 -->
+									<div class="col-sm-12 col-md-6">
+										<p><label for="confirmPassword">Confirmation du nouveau mot de passe *</label>
+										<input class="form-control" type="password" name="confirmPassword" id="confirmPassword"/></p>
 
-									<p><label for="conf_password">Confirmation du mot de passe </label>
-									<input class="form-control" type="password" name="conf_password" id="password"></p>
+										<input type="submit" class="btn btn-default" value="Valider"/>
+									</div> <!-- ./..col-sm-12 col-md-6 -->
+									
 								</fieldset>
 							</form>
-					</div> <!-- ./..col-xs-12 -->
+					</div> <!-- ./..col-md-8 -->
 				</div> <!-- ./..row -->
 			</div> <!-- ./..side-body -->
 		</main> <!-- ./..container -->
 
 		<!-- Footer -->
 		
-
+		<footer>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-xs-12 ">
+						<p>&copy; 2017 <a href="#" class="color-primary linear">The BrotherHood Of Web</a>. All Rights Reserved. </p>
+					</div> <!-- ./..col-xs-12 -->
+				</div> <!-- ./..row-fluid -->
+			</div> <!-- ./..container-fluid -->
+		</footer>
+		<!-- /Footer -->
 		
 
 	</body>
