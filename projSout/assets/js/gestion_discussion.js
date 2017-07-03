@@ -7,7 +7,6 @@ $(function() {
     var texte  = $('#texte');
     var btnValider = $('#valider');
     var erreur = $('#erreur');
-    getSujetDiscussion();
 
     // Vérifie le sujet de la discussion
     sujet.focusout( {sujet: sujet, erreur: erreur}, function(event) {      // Ajoute et envoie les données à travers un évènement JQuery
@@ -78,7 +77,7 @@ function ajouterEnBase(sujet, texte) {
                 message.html("<p>[ERREUR] - Erreur interne AJAX!</p>")
             },
             complete : function(reponse, status) {  // Exécute ce bloc une fois que l'appel AJAX à été complété entièrement.
-                getSujetDiscussion();   // Actualise la page
+                //getSujetDiscussion();   // Actualise la page
             }
         });
     }
@@ -88,8 +87,6 @@ function ajouterEnBase(sujet, texte) {
  * Retourne tous les sujet de discussion.
  */
 function getSujetDiscussion() {
-    // var offset = getOffset(numeroPageEntre, nombreSujetPage);
-    // console.log(sujetPage);
 
     $('.ligne').remove();
     $.ajax({
@@ -103,7 +100,7 @@ function getSujetDiscussion() {
         $('.nombreTotalSujet').text(nombreSujetTotal);
 
         var aSujet  = '<tr class="ligne">\
-                        <td><a id="aSujet';
+                        <td><a style="font-size: 2.0em;" id="aSujet';
         var aTexte  = '"></a>\
                             <p id="aTexte';
         var aDate = '"></p>\
@@ -130,19 +127,3 @@ function getSujetDiscussion() {
         console.log('reponse fail getSujetDiscussion: ' + reponse);
     });
 }
-
-/**
- * Retourne l'offset du sujet à envoyer à la base de donnée
- * @param {*} numeroPage Le numéro de la page demandé
- * @param {*} nombreSujetPage Le nombre de sujet par page sélectionné
- */
-// function getOffset(numeroPage, nombreSujetPage) {
-//     $nombrePageTotal = nombreSujetTotal / nombreSujetPage; // Doit être un INT
-
-//     if ( (numeroPage > $nombrePageTotal) || (numeroPage < nombrePageTotal) ) {
-//         // Page 404
-//         return;
-//     }
-
-//     return (nombreSujetPage * numeroPage) -1;
-// }

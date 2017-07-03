@@ -1,4 +1,36 @@
-<?php require_once('includes/head_bootstrap.html');?>
+<?php 
+require_once('includes/head_bootstrap.html');
+
+// ========= FUTUR Numerotation des pages =========
+/*$numeroPage = 1;
+if (isset($_GET['page'])) {
+    $numeroPage = $_GET['page'];
+}
+echo $numeroPage;*/
+
+/*===================================================================
+  ======== récupère les sujets à partir de la base de donnée ========
+  ===================================================================*/
+
+define('HOST', 'localhost');
+define('USER', 'phpmyadmin');
+define('PASS', 'bmaxx');
+define('DB', 'apolearn');
+
+require_once('includes/inc_bdd.php'); // Inclusion essentielle
+
+$return = array();
+
+$requete = $db->prepare('SELECT *, (SELECT COUNT(*) FROM discussion) as nbr_sujet FROM discussion ORDER BY date_post DESC');
+$succes = $requete->execute();
+
+if ($succes) {
+    $return['sujets'] = $requete->fetchAll();
+
+} else {
+    $return['erreur'] = 'Une érreur est survenue dans l\'exécution de la requête des sujets';
+}
+?>
     <script src="assets/js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <script src="assets/js/gestion_discussion.js"></script>
@@ -11,21 +43,7 @@
             <div class="col-sm-6">
                 <p><span class="nombreTotalSujet"></span> sujets.</p>
             </div>
-            
-            <!--<div class="col-sm-3">
-                <p>trie des sujets</p>
-            </div>-->
-
-            <!--<div class="col-sm-3">
-                <div class="form-group">
-                    <label for="nombreSujetPage">Nombre de sujet par page : </label>
-                    <select name="nombreSujetPage" id="nombreSujetPage">
-                        <option value="5" selected>5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                    </select>
-                </div>
-            </div>-->
+            <a href="discussion.php?page=2">Page suivante</a>
 
             <div class="col-sm-6">
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#monModal">
@@ -64,7 +82,19 @@
         <section class="row" style="padding-top: 20px;">
             <div class="col-sm-12 thread">
                 <table class="table table-striped">
-                    <tbody></tbody>
+                    <tbody>
+                        <?php
+                            foreach ($return['sujets'] as $element){
+                                echo '<tr class="ligne">
+                                        <td>
+                                            <a style="font-size: 2.0em;" class="sujet" href="sujet.php?id='.$element['id'].'">'.$element['sujet'].'</a>
+                                            <p class="texte">'.$element['texte']    .'</p>
+                                            <p class="date">' .$element['date_post'].'</p>
+                                        </td>
+                                     </tr>';
+                            }
+                        ?>
+                    </tbody>
                 </table>
             </div>
         </section>
