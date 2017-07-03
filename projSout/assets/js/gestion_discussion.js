@@ -1,14 +1,12 @@
 var isSujetValid = false;
 var isTextValid = false;
 var nombreSujetTotal = 0;
-// var nombrePageEntre;
 
 $(function() {
     var sujet  = $('#sujet');
     var texte  = $('#texte');
     var btnValider = $('#valider');
     var erreur = $('#erreur');
-    //nombrePageEntre = $('#nombreSujetPage').val();
     getSujetDiscussion();
 
     // Vérifie le sujet de la discussion
@@ -102,12 +100,10 @@ function getSujetDiscussion() {
         var tableBody  =  $('tbody');
         nombreSujetTotal = reponse['nbr_sujet'];        //Nombre de sujet au total dans la base de données
 
-        $('.page').attr('href', '2');
-        $('.page').text('2 ');
         $('.nombreTotalSujet').text(nombreSujetTotal);
 
         var aSujet  = '<tr class="ligne">\
-                        <td><a href="#" id="aSujet';
+                        <td><a id="aSujet';
         var aTexte  = '"></a>\
                             <p id="aTexte';
         var aDate = '"></p>\
@@ -123,6 +119,8 @@ function getSujetDiscussion() {
                             fin);
 
             $('#aSujet' + index).text(element['sujet']);
+            $('#aSujet' + index).attr('href', 'sujet.php?id=' + element['id']);
+
             $('#aTexte' + index).text(element['texte']);
             $('#aDate'  + index).text(element['date_post']);
         });
@@ -138,13 +136,13 @@ function getSujetDiscussion() {
  * @param {*} numeroPage Le numéro de la page demandé
  * @param {*} nombreSujetPage Le nombre de sujet par page sélectionné
  */
-function getOffset(numeroPage, nombreSujetPage) {
-    $nombrePageTotal = nombreSujetTotal / nombreSujetPage; // Doit être un INT
+// function getOffset(numeroPage, nombreSujetPage) {
+//     $nombrePageTotal = nombreSujetTotal / nombreSujetPage; // Doit être un INT
 
-    if ( (numeroPage > $nombrePageTotal) || (numeroPage < nombrePageTotal) ) {
-        // Page 404
-        return;
-    }
+//     if ( (numeroPage > $nombrePageTotal) || (numeroPage < nombrePageTotal) ) {
+//         // Page 404
+//         return;
+//     }
 
-    return (nombreSujetPage * numeroPage) -1;
-}
+//     return (nombreSujetPage * numeroPage) -1;
+// }
