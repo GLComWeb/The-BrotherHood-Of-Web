@@ -1,4 +1,16 @@
-<?php require_once('includes/head_bootstrap.html');?>
+<?php require_once('includes/head_bootstrap.html');
+    /*===================================================================
+    ======== récupère le sujets à partir de la base de donnée ========
+    ===================================================================*/
+
+    define('HOST', 'localhost');
+    define('USER', 'root');
+    define('PASS', '');
+    define('DB', 'apolearn');
+
+    require_once('includes/inc_bdd.php'); // Inclusion essentielle
+    $idDiscussion = intval($_GET['id']);
+?>
     <script src="assets/js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <script src="assets/js/gestion_sujet.js"></script>
@@ -20,22 +32,22 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <p class="modal-title">Ajouter une nouvelle discussion</p>
+                            <p class="modal-title">Ajouter une réponse</p>
                         </div>
                         <div class="modal-body">
-                            <!--<div class="form-group">
+                            <div class="form-group">
                                 <label for="sujet">Sujet</label>
                                 <p><input type="text" class="form-control input-sm" id="sujet" placeholder="sujet" minlength="3" maxlength="45" required></p>
-                            </div>-->
+                            </div>
                             <div class="form-group">
-                                <label for="texte">Votre text</label>
+                                <label for="texte">Votre texte</label>
                                 <p><textarea class="form-control" id="texte" rows="3" minlength="15"></textarea></p>
                             </div>
                             <div id="erreur"></div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="valider">Valider</button> <!-- Ajout en Ajax dans la base de donnée -->
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="valider" onclick="ajouterReponse(<?php echo $idDiscussion; ?>);">Valider</button> <!-- Ajout en Ajax dans la base de donnée -->
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -47,26 +59,13 @@
                 <table class="table table-striped">
                     <tbody>
                         <?php
-                            /*===================================================================
-                            ======== récupère le sujets à partir de la base de donnée ========
-                            ===================================================================*/
-
-                            define('HOST', 'localhost');
-                            define('USER', 'root');
-                            define('PASS', '');
-                            define('DB', 'apolearn');
-
-                            require_once('includes/inc_bdd.php'); // Inclusion essentielle
-
                             $return = array();
-                            $idDiscussion = intval($_GET['id']);
-
                             $requete = $db->prepare('SELECT discussion.sujet as sujetDiscus, 
-                                                     discussion.texte as textDiscus,
+                                                     discussion.texte as texteDiscus,
                                                      discussion.date_post as dateDiscus,
                                                      message.sujet as sujetMess,
                                                      message.date_post as dateMess,
-                                                     message.text as textMess 
+                                                     message.texte as texteMess 
                                                      FROM discussion LEFT JOIN message ON message.discussion_id = discussion.id WHERE discussion.id = :idDiscussion'); // LIMIT :offset, :nombreSujet
                             $requete->bindValue(':idDiscussion', $idDiscussion, PDO::PARAM_INT);
                             $succes = $requete->execute();
@@ -82,14 +81,14 @@
                             }
                                                        
                             echo '<tr><td><p>'.$return['message'][0]['sujetDiscus'].'<p>'.
-                                            '<p>'.$return['message'][0]['textDiscus'].'<p>'.
+                                            '<p>'.$return['message'][0]['texteDiscus'].'<p>'.
                                             '<p>'.$return['message'][0]['dateDiscus'].'</p></tr></td>';
                                 
                             if ( !empty($return['message'][0]['sujetDiscus']) ) {
                                 echo '<tr class="reponse"><td><p>';
                                 foreach ($return['message'] as $element) {
                                     echo $element['sujetMess'].'</p>'.
-                                    '          <p>'.$element['textMess'].'</p>'.
+                                    '          <p>'.$element['texteMess'].'</p>'.
                                     '          <p>'.$element['dateMess'];
                                     echo '<hr/>';
                                 }
