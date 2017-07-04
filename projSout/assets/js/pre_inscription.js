@@ -4,9 +4,9 @@
 $(function() {
     $('#nomEntreprise').focusout(checkEntreprise);
     $('#siret').focusout(checkSiret);
-    $('#nom').focusout(checkNom);
-    $('#prenom').focusout(checkPrenom);
-    $('#telephone').focusout(checkTelephone);
+    $('#nomUtilisateur').focusout(checkNom);
+    $('#prenomUtilisateur').focusout(checkPrenom);
+    $('#telFixe').focusout(checkTelephone);
     // Vérifie la présence de l'email dans la base de donnée
     $('#email').focusout(checkEmail);
 
@@ -27,41 +27,26 @@ var isValidEmail;
  */
 function sendPreInscription(evt) {
     evt.preventDefault();
-    if ( isValidEntreprise && isValidSiret && isValidNom && isValidPrenom && isValidTelephone 
-            && isValidEmail ) {
-
-        var nomEntreprise = $('#nomEntreprise').val();
-        var siret = $('#siret').val();
-        var nom = $('#nom').val();
-        var prenom = $('#prenom').val();
-        var telephone = $('#telephone').val();
-        var email = $('#email').val();
-
+    if ( isValidEntreprise && isValidSiret && isValidNom && isValidPrenom && isValidTelephone && isValidEmail ) {
         $.ajax({
-            type: 'POST',
-            url:  'preInscription_ajax.php',
-            data: { nomEntreprise: nomEntreprise,
-                    siret: siret,
-                    nom: nom,
-                    prenom: prenom,
-                    telephone: telephone,
-                    email: email,
-                    },
-            dataType: 'json'
-            
+        type: 'POST',
+        url:  'enregistrer_entreprise.php',
+        data: { nomEntreprise: $('#nomEntreprise').val(),
+                siret:  $('#siret').val(),
+                nomUtilisateur: $('#nomUtilisateur').val(),
+                prenomUtilisateur: $('#prenomUtilisateur').val(),
+                telephone: $('#telFixe').val(),
+                email: $('#email').val()
+              }
+        
         }).done(function(reponse) {
-            if (reponse['result']) {
-                $('#message').html(reponse['raison']);
-            } else {
-                $('#message').html(reponse['raison']);
-            }
+            console.log('Envoie du mail réussi');
 
-            }).fail(function(erreur) {
-                console.log(erreur);
-            });
-    } else {
-        $('#message').html('[ERREUR] - Vous devez remplir tous les champs!');
+        }).fail(function(erreur) {
+            console.log(erreur);
+        });
     }
+
 } // -------- FIN function --------
 
 function checkEntreprise() {
@@ -72,7 +57,6 @@ function checkEntreprise() {
     } else {
         isValidEntreprise = false;
     }
-    console.log(isValidEntreprise);
 }
 
 function checkSiret() {
@@ -83,7 +67,6 @@ function checkSiret() {
     } else {
         isValidSiret = false;
     }
-    console.log(isValidSiret);
 }
 
 function checkNom() {
@@ -94,7 +77,6 @@ function checkNom() {
     } else {
         isValidNom = false;
     }
-    console.log(isValidNom);
 }
 
 function checkPrenom() {
@@ -105,7 +87,6 @@ function checkPrenom() {
     } else {
         isValidPrenom = false;
     }
-    console.log(isValidPrenom);
 }
 
 function checkTelephone() {
@@ -116,11 +97,10 @@ function checkTelephone() {
     } else {
         isValidTelephone = false;
     }
-    console.log(isValidTelephone);
 }
 
 /**
-  Vérifie et ajoute un nom et l'email à la base de donnée comme pre-inscription
+  Vérifie l'email
  */
 function checkEmail() {
     var email = $('#email').val();
@@ -129,6 +109,5 @@ function checkEmail() {
         isValidEmail = true;
     } else {
         isValidEmail = false;
-    }
-    console.log(isValidEmail);
+    }    
 }

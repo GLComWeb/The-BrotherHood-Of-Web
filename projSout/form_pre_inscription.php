@@ -15,19 +15,16 @@
             <input type="text" id="siret" name="siret" maxlength="18" required/></p>
 
             <p><label for="nom">Nom</label><br/>
-            <input type="text" id="nom" name="nom" minlength="3" maxlength="10" required/></p>
+            <input type="text" id="nomUtilisateur" name="nomUtilisateur" minlength="3" required/></p>
 
             <p><label for="prenom">Prenom</label><br/>
-            <input type="text" id="prenom" name="prenom" minlength="3" maxlength="10" required/></p>
+            <input type="text" id="prenomUtilisateur" name="prenomUtilisateur" minlength="3" required/></p>
 
             <p><label for="telephone">Telephone</label><br/>
-            <input type="text" id="telephone" name="telephone" maxlength="15" required/></p>
+            <input type="text" id="telFixe" name="telFixe" required/></p>
 
             <p><label for="email">Email</label><br/>
-            <input type="email" id="email" name="email" maxlength="20" required/></p>
-
-            <!--<p><label for="password">Mot de passe</label><br/>
-            <input type="password" id="password" name="password" maxlength="8" required/></p>-->
+            <input type="email" id="email" name="email" required/></p>
 
             <input type="submit" value="Valider"/>
         </form>
