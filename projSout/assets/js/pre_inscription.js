@@ -40,7 +40,11 @@ function sendPreInscription(evt) {
               }
         
         }).done(function(reponse) {
-            console.log('Envoie du mail réussi');
+            if (reponse['result'] == true) {
+                console.log('Envoie du mail réussi');
+            } else {
+                console.log('L\'enregistrement à échoué');
+            }
 
         }).fail(function(erreur) {
             console.log(erreur);
