@@ -68,7 +68,7 @@
 				            <li><a href="dashboard_student_profil.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profil</a></li>
 				            <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i> Modules</a></li>
 				            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Messagerie</a></li>
-				            <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i> Forum</a></li>
+				            <li><a href="discussion.php"><i class="fa fa-comment" aria-hidden="true"></i> Forum</a></li>
 				            <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a></li>
 				        </ul>
 				    </div><!-- ./..side-menu-container -->
@@ -81,7 +81,7 @@
 			<div class="side-body">
 				<div class="row">
 					<!-- CONTENT -->
-					<div class="col-md-8">
+					<div class="col-md-11">
 
 						<?php // A des fins de test
                       		if (isset($_SESSION['idFormation']) ) {
@@ -165,19 +165,24 @@
 		</main> <!-- ./..container -->
 
 		<!-- Footer -->
+         <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="icon">
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                        </p>
+                    </div> <!-- ./..col-xs-12 -->
+                    <div class="col-xs-12 ">
+                        <p>&copy; 2017 <a href="#" class="color-primary linear">The BrotherHood Of Web</a>. All Rights Reserved. </p>
+                    </div> <!-- ./..col-xs-12 -->
+                    
+                </div> <!-- ./..row -->
+            </div> <!-- ./..container-fluid -->
+         </footer><!-- /Footer -->
 		
-		<footer>
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<div class="col-xs-12 ">
-						<p>&copy; 2017 <a href="#" class="color-primary linear">The BrotherHood Of Web</a>. All Rights Reserved. </p>
-					</div> <!-- ./..col-xs-12 -->
-				</div> <!-- ./..row-fluid -->
-			</div> <!-- ./..container-fluid -->
-		</footer>
-		<!-- /Footer -->
-		
-
 	</body>
 </html>
 

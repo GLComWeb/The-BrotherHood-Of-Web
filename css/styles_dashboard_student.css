@@ -256,8 +256,14 @@ h2{
 	padding-bottom: 100px;
 }
 
+/*-- Page Profil --*/
+
 .side-body h1{
 	padding-bottom: 20px;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 25px;
 }
 
 .side-body hr{
@@ -300,6 +306,35 @@ h2{
 	color: #209E91;
 	background-color: #ffffff;
 }
+
+/*-- Page Forum --*/
+
+.forum .nbSujet{
+  text-align: right;
+  font-size: 18px;
+}
+
+.forum .ajoutDiscussion{
+  background-color: #01DFA5;
+  color: #FFFFFF;
+  border : 4px solid #01DFA5;
+  border-radius: 0;
+  margin-left: -5px;
+}
+
+.forum .ajoutDiscussion:hover{
+  color: black;
+}
+
+.forum .thread{
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
+  padding: 40px 40px;
+  margin-bottom: 45px;
+  margin-left: 10px;
+}
+
 
 /* small screen */
 @media (max-width: 768px) {
@@ -373,14 +408,36 @@ h2{
   }
 }
 
-
-
-
-
 /***********************************************-- FOOTER --***********************************************/
 
 footer p{
 	text-align: right;
 	padding-top: 15px;
 	padding-bottom: 10px;
+  margin-bottom: -10px;
+}
+
+footer .icon a{
+  cursor: pointer;
+  transition: all .1s ease;
+  color: #FFFFFF;
+  padding: 6px;
+  box-sizing: content-box;
+  font-size: 20px;
+  text-align: right;
+}
+
+footer .fa-facebook{
+  background-color: #3b5998;
+  padding: 8px 14px;
+}
+
+footer .fa-twitter{
+  background-color: #55acee;
+  padding: 8px 12px;
+}
+
+footer .fa-google-plus{
+  background-color: #dd4b39;
+  padding: 8px 8px;
 }
