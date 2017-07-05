@@ -13,6 +13,7 @@ function ajouterReponse(idDiscussion) {
         dataType: 'json'
     }).done(function(reponse) {
         console.log(reponse['result'] + ' ' + reponse['raison']);
+        $("table").load(location.href + " table");           // Rafraîchi l'affichage de la table
     
     }).fail(function(reponse) {
         console.log('reponse fail ajouter reponse: ' + reponse);

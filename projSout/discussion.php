@@ -1,3 +1,15 @@
+<?php 
+session_start();
+require_once('includes/head_bootstrap.html');
+
+if ( isset($_SESSION['utilisateur']) ) {
+    $utilisateur = unserialize($_SESSION['utilisateur']);
+    
+} else {
+    // Redirige l'utilisateur vers une autre page si aucune authentification
+    echo '<script>$(location).attr(\'href\',"http://www.google.com/")</script>';
+}
+?>
     <script src="assets/js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <script src="assets/js/gestion_discussion.js"></script>
@@ -10,7 +22,7 @@
             <div class="col-sm-6">
                 <p><span class="nombreTotalSujet"></span> sujets.</p>
             </div>
-
+            
             <div class="col-sm-6">
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#monModal">
                     <i class="fa fa-plus" aria-hidden="true"></i> Ajouter discussion

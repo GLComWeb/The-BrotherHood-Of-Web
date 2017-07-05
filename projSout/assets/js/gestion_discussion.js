@@ -7,6 +7,7 @@ $(function() {
     var texte  = $('#texte');
     var btnValider = $('#valider');
     var erreur = $('#erreur');
+    getSujetDiscussion();
 
     // Vérifie le sujet de la discussion
     sujet.focusout( {sujet: sujet, erreur: erreur}, function(event) {      // Ajoute et envoie les données à travers un évènement JQuery
@@ -44,11 +45,12 @@ $(function() {
             objetErreur.addClass("text-warning");
             objetErreur.html("<p>Vous devez remplir le texte</p>");
         }
-    })
+    });
 
     btnValider.click( {sujet: sujet, texte: texte}, function(event) {
         ajouterEnBase(event.data.sujet.val(), event.data.texte.val());
-    })
+    });
+
 });
 
 
@@ -77,7 +79,7 @@ function ajouterEnBase(sujet, texte) {
                 message.html("<p>[ERREUR] - Erreur interne AJAX!</p>")
             },
             complete : function(reponse, status) {  // Exécute ce bloc une fois que l'appel AJAX à été complété entièrement.
-                //getSujetDiscussion();   // Actualise la page
+                getSujetDiscussion();   // Actualise la page 
             }
         });
     }
@@ -99,31 +101,51 @@ function getSujetDiscussion() {
 
         $('.nombreTotalSujet').text(nombreSujetTotal);
 
-        var aSujet  = '<tr class="ligne">\
-                        <td><a style="font-size: 2.0em;" id="aSujet';
-        var aTexte  = '"></a>\
-                            <p id="aTexte';
-        var aDate = '"></p>\
-                            <p id="aDate';
-        var fin = '"></p>\
-                        </td>\
-                    </tr>';
-        
+        var aSujet  = '<tr class="ligne"><td><a class="aSujet';
+        var aTexte  = '"></a><p class="aTexte';
+        var aDate   = '"></p><p class="aDate';
+        var boutonSupprimer = '"></p><button type="button" class="btn btn-primary pull-right btnSupprimer';
+        var fin = '"></button></td></tr>';
+
         $.each(reponse['sujets'], function(index, element) {
         tableBody.append(aSujet + index +
-                            aTexte + index +
-                            aDate  + index +
-                            fin);
+                         aTexte + index +
+                         aDate  + index +
+                         boutonSupprimer + index +
+                         fin);
 
-            $('#aSujet' + index).text(element['sujet']);
-            $('#aSujet' + index).attr('href', 'sujet.php?id=' + element['id']);
+            $('.aSujet' + index).text(element['sujet']);
+            $('.aSujet' + index).attr('href', 'sujet.php?id=' + element['id']);
 
-            $('#aTexte' + index).text(element['texte']);
-            $('#aDate'  + index).text(element['date_post']);
-        });
-       
+            $('.aTexte' + index).text(element['texte']);
+            $('.aDate'  + index).text(element['date_post']);
+
+            $('.btnSupprimer' + index).text('Supprimer le sujet');
+            $('.btnSupprimer' + index).attr('onclick', 'supprimerDiscussion(' + element['id'] + ');' ); // On ajoute au bouton un évènement qui apelle la fonction de suppression ajax
+        });       
     
     }).fail(function(reponse) {
         console.log('reponse fail getSujetDiscussion: ' + reponse);
+    });
+}
+
+function supprimerDiscussion(idDiscussion) {
+    $.ajax({
+        url: 'supprimer_discussion.php',
+        type: 'POST',
+        data: { idUtilisateur: id, idDiscussion: idDiscussion },
+        dataType: 'json',
+    
+       success: function(reponse) {
+           console.log(reponse);
+       },
+    
+       complete: function(reponse) {
+           getSujetDiscussion();
+       },
+
+       fail: function(reponse) {
+           console.log(reponse);
+       }
     });
 }

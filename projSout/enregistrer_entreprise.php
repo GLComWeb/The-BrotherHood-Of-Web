@@ -21,9 +21,11 @@ $token         = md5(uniqid(rand(),true));
 $dateAujourdhui  = new DateTime();
 $delaiExpiration = new DateInterval('PT12H');    // Expiration dans 12h
 $dateExpiration  = $dateAujourdhui->add($delaiExpiration)->format('Y-m-d-H-m-s');
-/* =====================================================================*/
+
+/* ============================= Génère un mot de passe temporaire de 8 caractères ========================================*/
 $motDePasse      = generateur();
 
+/* ============== Ajout d'un utilisateur temporaire à la base de donnée ==============*/
 $requete = $db->prepare('INSERT INTO entreprise (nom, siret) VALUES (:nom, :siret)');
 $requete->bindValue(':nom', $nomEntreprise, PDO::PARAM_STR);
 $requete->bindValue(':siret', $siret, PDO::PARAM_STR);
@@ -56,13 +58,15 @@ if ($succes) {
     }
 
     /* ============== Envoie un mail avec le mot de passe temporaire et un jeton unique d'authentification ==============*/
-    echo 'token: '. $token;
-    $contenuMail = '<p>FROM: LearnStation < admin@ls.fr ><br/>
-    TO:   '.$nom.' < '.$email. ' ><br/>
-    Subject: CONFIRMATION D\'INSCRIPTION</br>
-    Chère Mme/Mr '.$nom.' '.$prenom.' merci d\avoir choisi notre plateforme de formation, votre préinscription à bien été enregistré, veuillez suivre le lien ce dessous afin de compléter
-    vos informations, vous serez redirigé vers votre compte<br/>
-    <a href="http://localhost/projSout/entreprise.php?token='.$token.'">Acceder à mon compte plateforme</a></p><br/>';
+    $contenuMail = '<p>FROM: LearnStation < admin@learnStation.fr ><br/>
+    TO:   '.$nom.' '.$prenom.' < '.$email. ' ><br/>
+    Subject: CONFIRMATION DE VOTRE PRE-INSCRIPTION</br>
+    Chère Mme/Mr '.$nom.' '.$prenom.' merci d\'avoir choisi notre plateforme de formation en ligne, votre préinscription à bien été enregistré, nous vous rappelons vos identifiant de conection:<br/>
+    email: '.$email.'<br/>
+    mot de passe: '.$motDePasse.'<br/>
+    ATTENTION!: Ce mot de passe est temporaire, vous devez le changer à votre prochaine connexion.
+    <a href="http://localhost/projSout/entreprise.php?token='.$token.'">Acceder à mon compte LearnStation</a></p><br/><br/>
+    LearnStation, copyright';
 
     file_put_contents('email.html', $contenuMail);
     echo json_encode($return);
