@@ -1,3 +1,24 @@
+<?php
+        define('HOST', 'localhost');
+        define('USER', 'root');
+        define('PASS', '');
+        define('DB', 'apolearn');
+
+        include_once ('includes/inc_bdd.php');
+
+            // on récupère les 10 derniers messages postés
+           //$requete = $db->prepare('SELECT * FROM tchat INNER JOIN utilisateur ON utilisateur_id=utilisateur.id ORDER BY utilisateur.id DESC ');
+            $requete = $db->prepare('SELECT * FROM  utilisateur ORDER BY utilisateur.id ');
+            $requete->execute();
+            $donnees = $requete->fetchAll();
+
+                // on affiche le message (l'id servira plus tard)
+                //echo "<p id=\"" . $row['utilisateur.nom'] . "\"><strong>" . $row['auteur'] . " dit :</strong> " . $row['message'] . "</p>";
+
+/*echo '<pre>';
+echo print_r($donnees);
+echo '</pre>';*/
+?>
 <!DOCTYPE html>
 <html lang="fr-FR">
     <head>
@@ -8,22 +29,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content="Apolearn est une plateforme e-learning LMS sociale et collaborative pour les professionnels de l'éducation et de la formation." />
-        <title>Forum de discussion</title>
-        
+        <title>Tchat</title>
+
         <!-- JS -->
         <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/script_dashboard_student.js"></script>
-        <script src="js/gestion_discussion.js"></script>
-        
+        <script type="text/javascript" src="js/scriptschat.js"></script>
+
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="css/styles_dashboard_student.css" />
         <link href="css/font-awesome.css" rel="stylesheet" />
         <link rel="shortcut icon" href="favicon.ico" />
 
+        <!--<script src="https://use.fontawesome.com/45e03a14ce.js"></script>-->
     </head>
-    <body>
+    <body >
         <!-- HEADER -->
         <header>
             <!-- NAVIGATION -->
@@ -80,58 +102,70 @@
 
         <!-- CONTENT -->
         <main class="container-fluid">
-            <div class="side-body forum">
-                <section class="row">
-                    <div class="col-xs-12">
-                        <h1>Forum</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <button type="button" class="btn btn-default ajoutDiscussion" data-toggle="modal" data-target="#monModal">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Ajouter une discussion
-                        </button>
-                    </div>
-                    <div class="col-sm-5 hidden-xs">
-                        <p class="nbSujet">Total : <span class="nombreTotalSujet"></span> sujets</p>
-                    </div>
-
-                    <div class="message"></div>
-
-                    <div class="modal fade" id="monModal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <p class="modal-title">Ajouter une nouvelle discussion</p>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="sujet">Sujet</label>
-                                        <p><input type="text" class="form-control input-sm" id="sujet" placeholder="sujet" minlength="3" maxlength="45" required></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="texte">Votre texte</label>
-                                        <p><textarea class="form-control" id="texte" rows="3" minlength="15"></textarea></p>
-                                    </div>
-                                    <div id="erreur"></div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="valider">Valider</button> <!-- Ajout en Ajax dans la base de donnée -->
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-                </section>
+            <div class="side-body tchat">
+                <div class="row">
                 
-                <section class="row" style="padding-top: 20px;">
-                    <div class="col-sm-11 thread">
-                        <table class="table table-striped">
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-        </main>
+                    <div class="col-md-3 hidden-xs chat_sidebar">
+                        <div class="row">
+
+                            <div class="dropdown all_conversation">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        Basic panel example
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="member_list">
+                                <?php
+                                    foreach($donnees as $key=>$value){
+                                ?>
+                                <ul class="list-unstyled">
+                                    <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                            <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
+                                    </span>
+                                        <div class="chat-body clearfix">
+                                            <div class="header_sec">
+                                                <strong class="primary-font"><?= $value['nom'] . " " . $value['prenom'] ?></strong> <!-- ici on fait aparetre le utilisateur connecter -->
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                 <?php
+                                    }
+                                ?>
+                            </div>
+                        </div> <!-- ./..row -->
+                    </div> <!-- ./..col-md-3 chat_sidebar -->
+
+                    <div class="col-md-7 message_section">
+                        <div class="row">
+                            <div class="new_message_head">
+                                <div class="pull-left">
+                                    <button><i class="fa fa-plus-square-o" aria-hidden="true"></i> Nouveau message</button>
+                                </div>
+                            </div><!--new_message_head-->
+                            <div class="chat_area">
+                                <ul class="list-unstyled1">
+                                        <!--*************** ici se trouve la structure des messages qui apparaissent dans le tchat en AJAX **********-->
+                                </ul>
+                            </div><!--chat_area-->
+                            <div class="message_write">
+                                <form action="traitementchat.php" method="POST"  >
+                                    <textarea name="message" class="form-control" placeholder="Message" id="message" ></textarea>
+                                    <div class="clearfix"></div>
+                                        <!--<div class="chat_bottom"  ><a href="#" class="pull-left upload_btn"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Add Files</a>-->
+                                        <button class="pull-right btn btn-success" type="submit" id="envoi">Envoyer</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div> <!-- ./..row -->
+                    </div> <!--col-md-7 message_section-->
+     
+                </div> <!-- ./..row -->
+            </div> <!-- ./..side-body tchat -->
+        </main> <!-- ./..container-fluid -->
 
         <!-- Footer -->
          <footer>

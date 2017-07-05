@@ -69,6 +69,7 @@
 				            <li><a href="#"><i class="fa fa-book" aria-hidden="true"></i> Modules</a></li>
 				            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Messagerie</a></li>
 				            <li><a href="discussion.php"><i class="fa fa-comment" aria-hidden="true"></i> Forum</a></li>
+				            <li><a href="index_tchat.php"><i class="fa fa-commenting-o" aria-hidden="true"></i></i> Tchat</a></li>
 				            <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a></li>
 				        </ul>
 				    </div><!-- ./..side-menu-container -->

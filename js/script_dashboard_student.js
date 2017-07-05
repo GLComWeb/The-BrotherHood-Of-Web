@@ -20,3 +20,4 @@ $(function(){
         $(".navbar-nav").collapse('hide');
     });
 });
+

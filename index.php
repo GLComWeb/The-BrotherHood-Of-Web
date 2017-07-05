@@ -170,7 +170,7 @@
 									<div class="col-sm-12 col-md-12">
 										<p><textarea id="message" class="form-control" rows="7" name="message" placeholder="Message" required></textarea></p>
 									</div> <!-- ./..col-sm-12 col-md-12 -->
-									<div class="col-sm-offset-4 col-sm-8 col-md-offset-4 col-md-8 ">
+									<div class="col-sm-offset-4 col-sm-8 col-md-offset-4 col-md-8">
 										<input id="valider" type="submit" class="form-control" value="Envoyer"/>
 									</div>
 								</form>
