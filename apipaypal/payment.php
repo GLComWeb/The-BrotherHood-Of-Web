@@ -53,9 +53,9 @@ session_start();
                                 <h3>formation prenium</h3>
                                 <h2>400€ <span>par ans</span></h2>
                                 <?php
-                                $req = $db->prepare('SELECT * from offre');
+                                $req = $db->prepare('SELECT * FROM offre');
                                 $req->execute();
-                                while ($d = $req->fetch(PDO::FETCH_ASSOC)){
+                                while ($d = $req->fetch()){
                                     ?>
                                     <input name="amount" value="<?php echo $d['prix'];?>" type="hidden">
                                     <?php
