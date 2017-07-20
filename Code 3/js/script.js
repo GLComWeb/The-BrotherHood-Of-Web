@@ -8,6 +8,16 @@ $(window).scroll(function () {
     }
 });
 
+// SMOOTH SCROLL (Défilement animé)
+$(function() {
+        $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+            var page = $(this).attr('href'); // Page cible
+            var speed = 750; // Durée de l'animation (en ms)
+            $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+            return false;
+        });
+    });
+
 // SUR MOBILE : ON CACHE LE MENU APRES CLICK SUR UN LIEN //
 $(function () {
     $('.navbar-collapse a').click(function () {
@@ -36,7 +46,7 @@ function validerForm() {
 
     if (name != "" && firstname != "" && email != "" && subject != "" && message.length > 20) {
         // Afficher la confirmation
-        $("#confirmation").html("<p> Formulaire validé ! </p>");
+        $("#confirmation").html("<p> Votre message a bien été envoyé ! </p><p> L'équipe Learn Station va traiter votre demande et va tout mettre en oeuvre pour vous assurer une réponse dans les plus bref délais. </p>");
         $("#formulaire").hide();
     } else {
         if (name == "" && firstname == "" && email == "" && subject == "") {

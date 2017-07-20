@@ -61,9 +61,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#home">Accueil <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#home" class="js-scrollTo">Accueil <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#About" class="js-scrollTo"> Qui sommes-nous ?</a></li>
                         <li><a href="regis_connect.php">Inscription| Connexion</a></li>
-                        <li><a href="#contact">Nous Contacter</a></li>
+                        <li><a href="#contact" class="js-scrollTo">Nous Contacter</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -84,7 +85,7 @@
             </div>
             <!-- Click to bottom -->
             <div class="thim-click-to-bottom">
-                <a href="#About" class="scroll">
+                <a href="#About" class="js-scrollTo">
                     <i class="fa fa-chevron-down">
 						</i>
                 </a>
@@ -98,8 +99,8 @@
                 <h2>Qui sommes-nous ?</h2>
             </div>
             <!-- ./..col-xs-12 -->
-            <div class="col-xs-12 sectionContent">
-                <h4>Ce que nous proposons</h4>
+            <div class="col-xs-12 sectionContent section2">
+                <h4 id="dropdown1">Ce que nous proposons</h4>
                 <hr/>
                 <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
                 <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
@@ -109,33 +110,9 @@
         </section>
         <!-- ./..row -->
         <!-- SECTION 3 -->
-        <section class="row sectionContent">
+        <section class="row sectionContent section3">
             <div class="col-xs-12">
-                <h4>Les avantages</h4>
-                <hr/>
-                <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
-                <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
-                <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
-            </div>
-            <!-- ./..col-xs-12 -->
-        </section>
-        <!-- ./..row -->
-        <!-- SECTION 4 -->
-        <section class="row sectionContent">
-            <div class="col-xs-12 ">
-                <h4>Témoignages</h4>
-                <hr/>
-                <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
-                <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
-                <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
-            </div>
-            <!-- ./..col-xs-12 -->
-        </section>
-        <!-- ./..row -->
-        <!-- SECTION 5 -->
-        <section class="row sectionContent">
-            <div class="col-xs-12 ">
-                <h4>L'équipe Learn Station&reg;</h4>
+                <h4 id="dropdown2">Les avantages</h4>
                 <hr/>
                 <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
                 <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</p>
@@ -146,6 +123,113 @@
         <!-- ./..row -->
     </main>
     <!-- ./..container-fluid -->
+
+    <!-- SECTION 4 -->
+        <section class="sectionContent" id="testimony">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <h4 id="dropdown3">Témoignages</h4>
+                        <hr/>
+                    </div> <!-- ./..col-xs-12 -->
+                </div> <!-- ./..row -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="testimony-des">
+                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                        </div>
+                        <div class="testimony-img">
+                            <img src="images/brad-pitt2.jpg" class="img-responsive" alt="Responsive image"/>
+                            <a href="#">Mr SMITH</a>
+                        </div>
+                    </div> <!-- ./..col-sm-6 -->
+                    <div class="col-sm-6">
+                        <div class="testimony-des">
+                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            <p>Cum soccis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                        </div>
+                        <div class="testimony-img">
+                            <img src="images/Angelina-Jolie1.jpg" class="img-responsive" alt="Responsive image"/>
+                            <a href="#">Mrs SMITH</a>
+                        </div>
+                    </div> <!-- ./..col-sm-6 -->
+                </div> <!-- ./..row -->
+            </div> <!-- ./..container -->
+        </section> 
+
+    <!-- SECTION 5 -->
+        <section class="sectionContent" id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <h4 id="dropdown4">L'équipe Learn Station&reg;</h4>
+                        <hr/>
+                    </div> <!-- ./..col-xs-12 -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <figure class="thumbnail">
+                            <img src="images/teamG.jpg" class="img-responsive" alt="team img"/>
+                            <figcaption class="caption">
+                                <h4>Gérard</h4>
+                                <h3>Intégrateur web</h3>
+                                <hr/>
+                                <p class="social-icon">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- ./..col-sm-6 col-md-3 -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <figure class="thumbnail">
+                            <img src="images/teamL.jpg" class="img-responsive" alt="team img"/>
+                            <figcaption class="caption">
+                                <h4>Lucile</h4>
+                                <h3>Intégratrice web</h3>
+                                <hr/>
+                                <p class="social-icon">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- ./..col-sm-6 col-md-3 -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <figure class="thumbnail">
+                            <img src="images/teamW.jpg" class="img-responsive" alt="team img"/>
+                            <figcaption class="caption">
+                                <h4>Willy</h4>
+                                <h3>Développeur web</h3>
+                                <hr/>
+                                <p class="social-icon">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- ./..col-sm-6 col-md-3 -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <figure class="thumbnail">
+                            <img src="images/teamJ.jpg" class="img-responsive" alt="team img"/>
+                            <figcaption class="caption">
+                                <h4>Jérémy</h4>
+                                <h3>Développeur web</h3>
+                                <h3>Commercial</h3>
+                                <hr/>
+                                <p class="social-icon">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- ./..col-sm-6 col-md-3 -->
+                </div> <!-- ./..row -->
+            </div> <!-- ./..container -->
+        </section> 
 
     <!-- SECTION 6 -->
     <section id="contact">
